@@ -1,0 +1,22 @@
+{
+  "name": "spicy-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spicy-calendar/spicy-backend.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spicy-calendar/spicy-backend/issues"
+  },
+  "homepage": "https://github.com/spicy-calendar/spicy-backend#readme",
+  "dependencies": {
+    "helmet": "^3.15.1"
+  }
+}
