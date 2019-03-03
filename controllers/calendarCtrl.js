@@ -1,48 +1,63 @@
 module.exports = {
     getCalendar: async (req, res) => {
-        try {
-            // Get tokens from User
-            // const { access_token, refresh_token } = User...
-
-            const calendarData = await getCalendarFromGoogle(access_token, refresh_token);
-
-            res.status(200).send(calendarData);
+        try{
+            // Get Calendar from Google----
+            // const access_token = await User.get(access_token, refresh_token);
+            // const calendarData = getCalendarFromGoogle(access_token, refresh_token);
+            
+            res.status(201).send({
+                calendarData
+            });
         }catch(err) {
             res.status(404).send({
                 err
             });
         }
-
     },
-    updateCalendar: (req, res) => {
-        const updates = req.body;
-        // Push to Google Calendar
-
-        calculateBitwiseCalendar()
+    updateCalendar: async (req, res) => {
+        try{
+            const { updates } = req.body;
+            // const access_token = await User.get(access_token, refresh_token);
+            // await User.save(updates)
+            const calendarData = await getCalendarFromGoogle(accessToken, refreshToken);
+            
+            res.status(201).send({
+                calendarData
+            });
+        }catch(err){
+            res.status(404).send({
+                err
+            });
+        }
     },
-
-    // Helper methods
     getCalendarFromGoogle: async (accessToken, refreshToken) => {
         try{
-            // const calendarData = await Get Calendar from Google(accessToken)
-            if(!calendarData) {
-                // Maybe do this later if you have time----
-                // Use refresh token to get new access_token
-                // accessToken = GoogleAPi(refreshToken)
-                // Store new accessToken in User----
-                // await User.save(accessToken)
+            // let calendarData = await get Calendar from Google(accessToken)
 
-                // const calendarData = await Get Calendar from Google(accessToken)
+            if(!calendarData){
+                // Mayber do this later if you have time----
+                // Use refreshToken to get new accessToken----
+                // accessToken = await googleAPI(refreshToken);
+                // Save new access_token to User
+                // await User.save(access_token);
+
+                // try to get Calendar again----
+                // calendarData = await getCalendar from Google(accessToken)
             }
-            // return calendarData;
-        }catch(err) {
-            // Return nothing
-        }
 
+            calculateBitwiseCalendar(calendarData);
+
+            return calendarData;
+        }catch(err) {
+            // return nothing
+        }
     },
-    calculateBitwiseCalendar: async (calendarObj) => {
-        // Convert calendarObj to bits
-        // Save to User.bitwiseCalendar
-        // await User.save()...
+    calculateBitwiseCalendar: async (calendarData) => {
+        try{
+            // const bitwiseCalendar = Convert calendar to bits
+            // await User.save(bitweiseCalendar);
+        }catch(err) {
+            console.log(err);
+        }
     }
 }
