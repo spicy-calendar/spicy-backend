@@ -19,5 +19,22 @@ module.exports = {
     },
     test: (req, res) => {
         console.log('test');
+    },
+    getDailyEvents: async (req, res) => {
+        try{
+            // Get free times from database----
+            // const bitwise = await User.get(bitwiseCalendar)
+            
+            // const events = Scrape EventBrite for events (Cheerio)
+            // const releventEvents = events.filter(event => //does event overlap with schedule ? true : false);
+
+            res.status(201).send({
+                releventEvents
+            });
+        }catch(err) {
+            res.status(404).send({
+                err
+            });
+        }
     }
 }

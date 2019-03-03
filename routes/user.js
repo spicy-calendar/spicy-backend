@@ -7,4 +7,7 @@ module.exports = (router) => {
     router
         .route('/connect-calendar')
         .post(userCtrl.connectCalendar);
+    router
+        .route('/get-daily-events')
+        .get(userCtrl.getDailyEvents);
 }
